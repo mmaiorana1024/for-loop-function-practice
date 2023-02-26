@@ -12,7 +12,7 @@ export function getAllAccountsWithSumsOfDepositsLess2000(array) {
     } else {
       let sum = 0;
       for (let j = 0; j < deposit.length; j++) {
-        sum = sum + deposit[j];
+        sum += deposit[j];
       }
       if (sum <= 2000) {
         depositsClients.push({ id: array[i].id, name: array[i].name, balance: array[i].balance, deposits: array[i].deposits, withdrawals: array[i].withdrawals });

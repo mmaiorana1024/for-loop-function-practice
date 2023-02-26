@@ -13,7 +13,7 @@ export function getAllWithdrawals(array) {
     } else {
       let sum = 0;
       for (let j = 0; j < withdrawal.length; j++) {
-        sum = sum + withdrawal[j];
+        sum += withdrawal[j];
       }
       withdrawalTotal.push(sum);
     }

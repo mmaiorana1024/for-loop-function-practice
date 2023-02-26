@@ -6,7 +6,7 @@ export function getAverage(array) {
   let sum = 0;
   let numCount = array.length;
   for (let i = 0; i < array.length; i++) {
-    sum = sum + array[i];
+    sum += array[i];
   }
   return sum / numCount;
 }
