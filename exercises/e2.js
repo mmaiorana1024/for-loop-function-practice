@@ -4,17 +4,14 @@
 
 export function getNumbersWithSquareRoots(max) {
   let arrOfNumsToMax = [];
-  let arrOfSqrtNums = [];
-  for (let i = 0; i < max + 1; i++) {
-    arrOfNumsToMax.push(i);
-  }
-  for (let x = 0; x < arrOfNumsToMax.length; x++) {
-    let sqrt = Math.sqrt(arrOfNumsToMax[x]);
+  for (let i = 0; i <= max; i++) {
+    let sqrt = Math.sqrt(i);
     if (sqrt % 1 === 0) {
-      arrOfSqrtNums.push(arrOfNumsToMax[x]);
+      arrOfNumsToMax.push(i);
     }
   }
-  return arrOfSqrtNums;
+
+  return arrOfNumsToMax;
 }
 
 // === TEST YOURSELF ===

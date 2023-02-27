@@ -6,50 +6,25 @@
 
 export function getClientsWithWrongBalance(array) {
   let clientBalanceError = [];
-  for (let i = 0; i < array.length; i++) {
-    let deposits = array[i].deposits;
-    let depositsArr = [];
 
-    let withdrawals = array[i].withdrawals;
-    let withdrawalsArr = [];
-
+  for (let accounts of array) {
     let depositsSum = 0;
     let withdrawalsSum = 0;
 
-    let clientBalance = 0;
-    clientBalance = array[i].balance;
-
-    //get deposit array
-    if (deposits === undefined) {
-      depositsArr.push(0);
-    } else {
-      for (let j = 0; j < deposits.length; j++) {
-        depositsArr.push(deposits[j]);
+    if (accounts.deposits) {
+      for (let deposit of accounts.deposits) {
+        depositsSum += deposit;
       }
     }
 
-    //get withdrawal array
-    if (array[i].withdrawals === undefined) {
-      withdrawalsArr.push(0);
-    } else {
-      for (let j = 0; j < withdrawals.length; j++) {
-        withdrawalsArr.push(withdrawals[j]);
+    if (accounts.withdrawals) {
+      for (let withdrawal of accounts.withdrawals) {
+        withdrawalsSum += withdrawal;
       }
     }
 
-    //sum deposits array
-    for (let x = 0; x < depositsArr.length; x++) {
-      depositsSum = depositsSum + depositsArr[x];
-    }
-
-    //sum withdrawals array
-    for (let y = 0; y < withdrawalsArr.length; y++) {
-      withdrawalsSum = withdrawalsSum + withdrawalsArr[y];
-    }
-
-    // deposits / withdrawals delta
-    if (clientBalance !== depositsSum - withdrawalsSum) {
-      clientBalanceError.push({ id: array[i].id, name: array[i].name, balance: array[i].balance, deposits: array[i].deposits, withdrawals: array[i].withdrawals });
+    if (accounts.balance !== depositsSum - withdrawalsSum) {
+      clientBalanceError.push(accounts);
     }
   }
   return clientBalanceError;

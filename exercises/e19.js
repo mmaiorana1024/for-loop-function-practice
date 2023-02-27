@@ -7,13 +7,8 @@ export function reverseArray(array) {
   const reversedArray = [];
   let arrayCounter = array.length - 1;
 
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array.length; j++) {
-      if (j === arrayCounter) {
-        reversedArray.push(array[arrayCounter]);
-        arrayCounter -= 1;
-      }
-    }
+  for (let i = array.length - 1; i >= 0; i--) {
+    reversedArray.push(array[i]);
   }
   return reversedArray;
 }

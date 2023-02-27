@@ -8,7 +8,7 @@ export function getAllWithdrawals(array) {
   let withdrawalTotal = [];
   for (let i = 0; i < array.length; i++) {
     let withdrawal = array[i].withdrawals;
-    if (array[i].withdrawals === undefined) {
+    if (!array[i].withdrawals) {
       withdrawalTotal.push(0);
     } else {
       let sum = 0;

@@ -5,16 +5,31 @@
 // NOTE: You MUST use double/nested FOR loop to solve this exercise. The array.includes() method is NOT allowed.
 
 export function separateNamesWithAFromRest(array) {
+  let letterInName = "a";
   let clientNames = [[], []];
-  let letterUpper = "A";
-  let letterLower = "a";
+
   for (let i = 0; i < array.length; i++) {
-    if (array[i].match(letterUpper) || array[i].match(letterLower)) {
-      clientNames[0].push(array[i]);
-    } else {
-      clientNames[1].push(array[i]);
+    let nameMatches = "";
+    let nameNoMatch = "";
+
+    for (let alphabet of array[i]) {
+      if (alphabet === letterInName.toUpperCase() || alphabet === letterInName.toLowerCase()) {
+        nameMatches = array[i];
+      } else {
+        nameNoMatch = array[i];
+      }
     }
+
+    if (!nameMatches) {
+      clientNames[1].push(array[i]);
+    } else {
+      clientNames[0].push(array[i]);
+    }
+
+    nameMatches = "";
+    nameNoMatch = "";
   }
+
   return clientNames;
 }
 

@@ -7,7 +7,7 @@ export function getClientsWithBalanceOverOneHundred(array) {
   let balanceGtOneHundred = [];
   for (let i = 0; i < array.length; i++) {
     if (array[i].balance > 100) {
-      balanceGtOneHundred.push({ id: array[i].id, name: array[i].name, balance: array[i].balance, deposits: array[i].deposits, withdrawals: array[i].withdrawals });
+      balanceGtOneHundred.push(array[i]);
     }
   }
   return balanceGtOneHundred;

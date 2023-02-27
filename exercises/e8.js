@@ -4,28 +4,15 @@
 // getClientWithGreatestBalance(bankAccounts) => [{ name: 'SomeName', balance: 32, ... }]
 
 export function getClientWithGreatestBalance(array) {
-  let balanceGtZero = [];
+  let max = array[0];
+
   for (let i = 0; i < array.length; i++) {
-    if (array[i].balance > 0) {
-      balanceGtZero.push({ id: array[i].id, balance: array[i].balance });
+    if (array[i].balance > max.balance) {
+      max = array[i];
     }
   }
-  //console.log(balanceGtZero);
-  let maxCurrentBalance = balanceGtZero[0].balance;
-  let clientId = 0;
-  for (let x = 0; x < balanceGtZero.length; x++) {
-    if (balanceGtZero[x].balance > maxCurrentBalance) {
-      maxCurrentBalance = balanceGtZero[x].balance;
-      clientId = balanceGtZero[x].id;
-    }
-  }
-  let clientWithMaxBalance = [];
-  for (let y = 0; y < array.length; y++) {
-    if (clientId === array[y].id) {
-      clientWithMaxBalance.push({ id: array[y].id, name: array[y].name, balance: array[y].balance, deposits: array[y].deposits, withdrawals: array[y].withdrawals });
-    }
-  }
-  return clientWithMaxBalance;
+
+  return [max];
 }
 
 // === TEST YOURSELF ===

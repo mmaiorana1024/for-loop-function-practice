@@ -7,15 +7,15 @@ export function getAllAccountsWithSumsOfDepositsLess2000(array) {
   let depositsClients = [];
   for (let i = 0; i < array.length; i++) {
     let deposit = array[i].deposits;
-    if (deposit === undefined) {
-      depositsClients.push({ id: array[i].id, name: array[i].name, balance: array[i].balance, withdrawals: array[i].withdrawals });
+    if (!deposit) {
+      depositsClients.push(array[i]);
     } else {
       let sum = 0;
       for (let j = 0; j < deposit.length; j++) {
         sum += deposit[j];
       }
       if (sum <= 2000) {
-        depositsClients.push({ id: array[i].id, name: array[i].name, balance: array[i].balance, deposits: array[i].deposits, withdrawals: array[i].withdrawals });
+        depositsClients.push(array[i]);
       }
     }
   }

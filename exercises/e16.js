@@ -7,7 +7,7 @@
 export function flatArrays(array) {
   const flatArray = [];
   for (let i = 0; i < array.length; i++) {
-    if (array[i].length !== undefined) {
+    if (array[i].length) {
       for (let j = 0; j < array[i].length; j++) {
         flatArray.push(array[i][j]);
       }
