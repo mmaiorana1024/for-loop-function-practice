@@ -10,13 +10,10 @@ export function separateNamesWithAFromRest(array) {
 
   for (let i = 0; i < array.length; i++) {
     let nameMatches = "";
-    let nameNoMatch = "";
 
     for (let alphabet of array[i]) {
       if (alphabet === letterInName.toUpperCase() || alphabet === letterInName.toLowerCase()) {
         nameMatches = array[i];
-      } else {
-        nameNoMatch = array[i];
       }
     }
 
@@ -27,7 +24,6 @@ export function separateNamesWithAFromRest(array) {
     }
 
     nameMatches = "";
-    nameNoMatch = "";
   }
 
   return clientNames;
